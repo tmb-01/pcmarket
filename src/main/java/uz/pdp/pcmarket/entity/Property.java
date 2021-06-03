@@ -10,10 +10,12 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Data
 @Entity
-public class Characteristic {
+public class Property {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String propertyName;
+    private String propertyValue;
     @ManyToOne
-    private Product product;
+    private Characteristic characteristic;
 }

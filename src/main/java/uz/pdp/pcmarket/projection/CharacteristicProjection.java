@@ -11,7 +11,5 @@ import javax.persistence.ManyToOne;
 public interface CharacteristicProjection {
     Long getId();
 
-    String getText();
-
     Product getProduct();
 }
