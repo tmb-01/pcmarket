@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,4 +17,7 @@ public class Characteristic {
     private Long id;
     @ManyToOne
     private Product product;
+
+//    @OneToMany
+//    List<Property> properties;
 }
