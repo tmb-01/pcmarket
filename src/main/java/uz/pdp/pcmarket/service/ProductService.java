@@ -45,6 +45,29 @@ public class ProductService {
         return new Result("attachment not exist", false);
     }
 
+    public Result put(Long id, Product product) {
+
+        Optional<Product> productById = productRepository.findById(id);
+
+        if (productById.isPresent()) {
+            Optional<Attachment> attachmentById = attachmentRepository.findById(product.getAttachment().getId());
+            Optional<Category> categoryById = categoryRepository.findById(product.getCategory().getId());
+
+            if (attachmentById.isPresent()) {
+                if (categoryById.isPresent()) {
+                    product.setId(id);
+                    product.setAttachment(attachmentById.get());
+                    product.setCategory(categoryById.get());
+                    productRepository.save(product);
+                    return new Result("saved", true);
+                }
+                return new Result("category not exist", false);
+            }
+            return new Result("attachment not exist", false);
+        }
+        return new Result("product not exist", false);
+    }
+
     public List<Product> getAll() {
         return productRepository.findAll();
     }
