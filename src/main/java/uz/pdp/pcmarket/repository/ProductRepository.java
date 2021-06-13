@@ -10,10 +10,15 @@ import uz.pdp.pcmarket.entity.Product;
 import uz.pdp.pcmarket.entity.Property;
 import uz.pdp.pcmarket.projection.ProductProjection;
 
+import java.util.List;
+
 @RepositoryRestResource(path = "product", collectionResourceRel = "list", excerptProjection = ProductProjection.class)
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @RestResource(path = "price-between")
     Page<Product> findAllByPriceBetween(int price, int price2, Pageable pageable);
+
+    @Query(value = "select p.characteristic.product from Property p where p.id in ?1")
+    List<Product> getForFilter(List<Long> id);
 
 }

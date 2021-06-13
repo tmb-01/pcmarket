@@ -41,7 +41,7 @@ public class ProductController {
     }
 
     @GetMapping("/filter")
-    public List<Property> getByFilter(@RequestBody List<Long> id) {
+    public List<Product> getByFilter(@RequestBody List<Long> id) {
         return productService.getByFilter(id);
     }
 

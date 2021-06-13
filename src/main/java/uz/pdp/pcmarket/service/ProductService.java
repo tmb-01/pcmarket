@@ -49,8 +49,8 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public List<Property> getByFilter(List<Long> propertiesId) {
-        return propertyRepository.findAllByIdIn(propertiesId);
+    public List<Product> getByFilter(List<Long> propertiesId) {
+        return productRepository.getForFilter(propertiesId);
     }
 
     public Product getById(Long id) {
