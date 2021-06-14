@@ -15,6 +15,7 @@ public class Characteristic {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String characteristicName;
     @ManyToOne
     private Product product;
 
