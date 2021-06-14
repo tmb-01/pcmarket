@@ -36,7 +36,7 @@ public class Config extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/product", "/attachment", "/cart", "/category", "/characteristic", "/customer", "/order", "/product", "/property").hasAnyRole("SUPER_ADMIN", "MODERATOR", "OPERATOR")
                 .antMatchers(HttpMethod.POST, "/product", "/attachment", "/cart", "/category", "/characteristic", "/customer", "/order", "/product", "/property").hasAnyRole("SUPER_ADMIN", "MODERATOR")
                 .antMatchers(HttpMethod.PUT, "/product/**", "/attachment/**", "/cart/**", "/category/**", "/characteristic", "/customer/**", "/order/**", "/product/**", "/property/**").hasAnyRole("SUPER_ADMIN", "MODERATOR")
-                .antMatchers(HttpMethod.DELETE, "/product/**", "/attachment/**", "/cart/**", "/category/**", "/characteristic", "/customer/**", "/order/**", "/product/**", "/property/**").hasAnyRole("SUPER_ADMIN", "MODERATOR")
+                .antMatchers(HttpMethod.DELETE, "/product/**", "/attachment/**", "/cart/**", "/category/**", "/characteristic", "/customer/**", "/order/**", "/product/**", "/property/**").hasAnyRole("SUPER_ADMIN")
                 .anyRequest()
                 .authenticated()
                 .and()
